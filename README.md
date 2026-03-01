@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>ZodiacZones</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body{
+    margin:0;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg,#0f2027,#203a43,#2c5364);
+    color:white;
+    text-align:center;
+}
+
+h1{
+    margin-top:40px;
+    font-size:28px;
+    color:gold;
+}
+
+.card{
+    background: rgba(255,255,255,0.1);
+    backdrop-filter: blur(12px);
+    padding:25px;
+    border-radius:20px;
+    width:90%;
+    max-width:400px;
+    margin:30px auto;
+    box-shadow:0 0 25px rgba(255,215,0,0.6);
+}
+
+input, select{
+    width:90%;
+    padding:10px;
+    margin:8px;
+    border-radius:10px;
+    border:none;
+}
+
+button{
+    padding:10px 20px;
+    border:none;
+    border-radius:20px;
+    background:gold;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+button:hover{
+    background:white;
+    color:black;
+}
+
+#result{
+    margin-top:20px;
+    font-size:18px;
+}
+</style>
+</head>
+
+<body>
+
+<h1>✨ ZodiacZones ✨</h1>
+
+<div class="card">
+
+<input type="text" id="name" placeholder="Enter Your Name">
+
+<select id="rasi">
+<option value="">Select Rasi</option>
+<option value="Aries">♈ Aries</option>
+<option value="Taurus">♉ Taurus</option>
+<option value="Gemini">♊ Gemini</option>
+<option value="Cancer">♋ Cancer</option>
+<option value="Leo">♌ Leo</option>
+<option value="Virgo">♍ Virgo</option>
+<option value="Libra">♎ Libra</option>
+<option value="Scorpio">♏ Scorpio</option>
+<option value="Sagittarius">♐ Sagittarius</option>
+<option value="Capricorn">♑ Capricorn</option>
+<option value="Aquarius">♒ Aquarius</option>
+<option value="Pisces">♓ Pisces</option>
+</select>
+
+<select id="nakshatra">
+<option value="">Select Nakshatra</option>
+<option>Ashwini</option>
+<option>Bharani</option>
+<option>Krittika</option>
+<option>Rohini</option>
+<option>Mrigashira</option>
+<option>Ardra</option>
+<option>Punarvasu</option>
+<option>Pushya</option>
+<option>Ashlesha</option>
+<option>Magha</option>
+<option>Hasta</option>
+<option>Swati</option>
+<option>Anuradha</option>
+<option>Revati</option>
+</select>
+
+<button onclick="generateHoroscope()">Get Today's Horoscope</button>
+
+<div id="result"></div>
+
+</div>
+
+<script>
+
+function generateHoroscope(){
+
+var name=document.getElementById("name").value;
+var rasi=document.getElementById("rasi").value;
+var nakshatra=document.getElementByById? document.getElementByById("nakshatra") : document.getElementById("nakshatra");
+nakshatra = nakshatra.value;
+
+if(name==""||rasi==""||nakshatra==""){
+alert("Please fill all details");
+return;
+}
+
+var today=new Date();
+var dayNumber=today.getDate(); // changes daily automatically
+
+var messages=[
+"Today is perfect for new beginnings.",
+"Financial luck supports you today.",
+"Focus on studies and self-growth.",
+"Unexpected happiness is coming.",
+"Stay calm and avoid arguments.",
+"Great day for planning future goals.",
+"Health and positivity shine today.",
+"New opportunity will appear soon.",
+"Hard work brings reward.",
+"Family support strengthens you."
+];
+
+var dailyMessage=messages[dayNumber % messages.length];
+
+document.getElementById("result").innerHTML=
+"🌟 Hello "+name+"!<br><br>"+
+"🔮 Rasi: "+rasi+"<br>"+
+"✨ Nakshatra: "+nakshatra+"<br><br>"+
+"🌠 Today's Horoscope:<br><br>"+
+dailyMessage;
+
+}
+
+</script>
+
+</body>
+</html>
